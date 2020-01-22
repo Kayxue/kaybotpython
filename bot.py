@@ -50,13 +50,8 @@ async def leave(ctx):
 
 
 @bot.command()
-async def clear(ctx,amount=100):
-    channel=ctx.message.channel
-    messages=[]
-    async for message in bot.logs_from(channel, limit=int(amount)+1):
-        messages.append(message)
-    await bot.delete_messages(messages)
-    await bot.say(f'刪除訊息完成！')
+async def clear(ctx,num:int):
+    await ctx.channel.purge(limit=num+1)
 
 
 bot.run(token)
