@@ -57,3 +57,4 @@ async def help(ctx):
     await ctx.channel.send(embed=embed1)
 
 bot.run(jdata["TOKEN"])
+
