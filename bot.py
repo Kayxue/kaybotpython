@@ -90,13 +90,7 @@ async def help(ctx):
 
 @bot.command()
 async def time(ctx):
-    year,month,day,hour,minute,second=datetime.now().year,datetime.now().month,datetime.now().day,datetme.now().hour,datetime.now().minute,datetime.now().second
+    outtime=time.strftime("%Y/%m/%d %p %l:%M:%S %Z",time.localtime())
+    await ctx.channel.send()
     
-def addzero(inputstr):
-    x=str(inputstr)
-    if len(inputstr) == 1:
-        x="0"+x
-        return x
-    else:
-        return x
 bot.run(jdata["TOKEN"])
