@@ -46,13 +46,22 @@ class Event(Cog_Extension):
         await channel.send(embed=embed1)
     @commands.Cog.listener()
     async def on_message(self,message):
-        if '晚安'in message.content:
-            if '各位'in message.content:
-                await message.channel.send(f'晚安！{msg.author.mention}！')
-            else:
-                await message.channel.send(f'晚安！')
-        elif message.channel is "和機器人說話":
-            await message.channel.send('測試')
+        
+        if message.author != self.bot.user:
+            if '晚安' in str(message.content):
+                if '各位' in str(message.content):
+                    await message.channel.send(f'晚安！{message.author.mention}！')
+                else:
+                    await message.channel.send(f'晚安！')
+            elif '早安' in str(message.content):
+                if '各位' in str(message.content):
+                    await message.channel.send(f'早安！{message.author.mention}！')
+                else:
+                    await message.channel.send(f'早安！')
+            elif '嗨' in str(message.content) or 'Hi' in str(message.content):
+                await message.channel.send('嗨')
+            elif str(message.channel.name) == "和機器人說話" :
+                await message.channel.send('測試')
 
 def setup(bot):
     bot.add_cog(Event(bot))

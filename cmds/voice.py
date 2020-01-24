@@ -6,13 +6,13 @@ class Voice(Cog_Extension):
     
     @commands.command()
     async def join(self,ctx):
-        channel = ctx.message.author.voice
-        await bot.join_voice_channel(channel)
+        channel = ctx.message.author.voice.channel
+        await 
     
     @commands.command()
     async def leave(self,ctx):
         server = ctx.message.server
-        voice_client = bot.voice_client_in(server)
+        voice_client = self.bot.voice_client_in(server)
         await voice_client.disconnect()   
      
 def setup(bot):
