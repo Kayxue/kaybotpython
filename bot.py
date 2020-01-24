@@ -24,7 +24,7 @@ async def load(ctx,extension):
 @load.error
 async def load_error(ctx,error):
     if isinstance(error,discord.ext.commands.CheckFailure):
-        embed1=discord.Embed(title='權限不足！',description='您沒有權限執行此指令！',color=0xb6b6ba)
+        embed1=discord.Embed(title='權限不足！',description='您沒有權限執行此指令！',color=0xb6b8ba)
         embed1.add_field(name='請確認您是否有以下權限：',value='管理員')
         await ctx.channel.send(embed=embed1)
     elif isinstance(error, discord.ext.commands.MissingRequiredArgument):
@@ -47,7 +47,7 @@ async def unload(ctx,extension):
 @unload.error
 async def unload_error(ctx,error):
     if isinstance(error,discord.ext.commands.CheckFailure):
-        embed1=discord.Embed(title='權限不足！',description='您沒有權限執行此指令！',color=0xb6b6ba)
+        embed1=discord.Embed(title='權限不足！',description='您沒有權限執行此指令！',color=0xb6b8ba)
         embed1.add_field(name='請確認您是否有以下權限：',value='管理員')
         await ctx.channel.send(embed=embed1)
     elif isinstance(error, discord.ext.commands.MissingRequiredArgument):
@@ -70,7 +70,7 @@ async def reload(ctx,extension):
 @reload.error
 async def reload_error(ctx,error):
     if isinstance(error,discord.ext.commands.CheckFailure):
-        embed1=discord.Embed(title='權限不足！',description='您沒有權限執行此指令！',color=0xb6b6ba)
+        embed1=discord.Embed(title='權限不足！',description='您沒有權限執行此指令！',color=0xb6b8ba)
         embed1.add_field(name='請確認您是否有以下權限：',value='管理員')
         await ctx.channel.send(embed=embed1)
     elif isinstance(error, discord.ext.commands.MissingRequiredArgument):
@@ -88,6 +88,7 @@ async def help(ctx):
     embed1=discord.Embed(title='幫助',description='指令清單',color=0xb6b8ba)
     embed1.add_field(name='botinfo',value='查看關於此機器人之資訊',inline=False)
     embed1.add_field(name='clear',value='清除指定數量之訊息',inline=False)
+    embed1.add_field(name='kick',value='將指定使用者踢出伺服器',inline=False)
     await ctx.channel.send(embed=embed1)
 
 for filename in os.listdir('./cmds'):

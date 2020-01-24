@@ -6,8 +6,8 @@ class Voice(Cog_Extension):
     
     @commands.command()
     async def join(self,ctx):
-        channel = ctx.message.author.voice.channel
-        await 
+        
+        await bot.connect()
     
     @commands.command()
     async def leave(self,ctx):

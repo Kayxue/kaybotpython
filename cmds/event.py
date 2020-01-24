@@ -1,8 +1,9 @@
 import discord
 from discord.ext import commands
 import json
+import random
 from core.classes import *
-
+    
 class Event(Cog_Extension):
     @commands.Cog.listener()
     async def on_member_join(self,member):
@@ -44,24 +45,6 @@ class Event(Cog_Extension):
         embed1.set_thumbnail(url=message.author.avatar_url)
         embed1.set_footer(text=message.author,icon_url=message.author.avatar_url)
         await channel.send(embed=embed1)
-    @commands.Cog.listener()
-    async def on_message(self,message):
-        
-        if message.author != self.bot.user:
-            if '晚安' in str(message.content):
-                if '各位' in str(message.content):
-                    await message.channel.send(f'晚安！{message.author.mention}！')
-                else:
-                    await message.channel.send(f'晚安！')
-            elif '早安' in str(message.content):
-                if '各位' in str(message.content):
-                    await message.channel.send(f'早安！{message.author.mention}！')
-                else:
-                    await message.channel.send(f'早安！')
-            elif '嗨' in str(message.content) or 'Hi' in str(message.content):
-                await message.channel.send('嗨')
-            elif str(message.channel.name) == "和機器人說話" :
-                await message.channel.send('測試')
 
 def setup(bot):
     bot.add_cog(Event(bot))
