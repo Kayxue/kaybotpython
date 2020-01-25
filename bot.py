@@ -89,6 +89,7 @@ async def help(ctx):
     embed1.add_field(name='botinfo',value='查看關於此機器人之資訊',inline=False)
     embed1.add_field(name='clear',value='清除指定數量之訊息',inline=False)
     embed1.add_field(name='kick',value='將指定使用者踢出伺服器',inline=False)
+    embed1.add_field(name='ban（請先不要用）',value='將指定使用者封鎖')
     await ctx.channel.send(embed=embed1)
 
 for filename in os.listdir('./cmds'):

@@ -7,7 +7,12 @@ from core.classes import *
 with open('setting.json','r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
 
+
 class FunReply(Cog_Extension):
+    def __init__(self, bot):
+        self.gamequestion=False
+        self.normalquestion=False
+        self.bot=bot
     @commands.Cog.listener()
     async def on_message(self,message):
         if message.author != self.bot.user:
@@ -16,6 +21,9 @@ class FunReply(Cog_Extension):
                     await message.channel.send(f'晚安！{message.author.mention}！')
                 else:
                     if message.channel.name == "和湯圓說說話":
+                        if self.gamequestion==True or self.normalquestion==True:
+                            self.gamequestion=False
+                            self.normalquestion=False
                         await message.channel.send(f"{message.author.mention}：晚安")
                     else:
                         await message.channel.send(f'晚安！')
@@ -24,17 +32,44 @@ class FunReply(Cog_Extension):
                     await message.channel.send(f'早安！{message.author.mention}！')
                 else:
                     if message.channel.name == "和湯圓說說話":
+                        if self.gamequestion==True or self.normalquestion==True:
+                            self.gamequestion=False
+                            self.normalquestion=False
                         await message.channel.send(f"{message.author.mention}：早安")
                     else:
                         await message.channel.send(f'早安！')
             elif '嗨' in str(message.content) or 'Hi' in str(message.content):
                 if message.channel.name == "和湯圓說說話":
+                    if self.gamequestion==True or self.normalquestion==True:
+                        self.gamequestion=False
+                        self.normalquestion=False
                     await message.channel.send(f'{message.author.mention}：嗨')
                 else:
                     await message.channel.send('嗨')
             elif str(message.channel.name) == "和湯圓說說話" :
-                randommes=random.choice(jdata['RANDOMMESSAGE'])
-                await message.channel.send(f"{message.author.mention}：{randommes}")
-            
+                if self.gamequestion==False and self.normalquestion==False:
+                    typeout=random.choice(jdata['QUESTIONORMESSAGE'])
+                    if typeout== 'QUESTIONNORMAL':
+                        self.normalquestion=True
+                        self.gamequestion=False
+                        outputmsg=random.choice(jdata[f'{typeout}'])
+                        await message.channel.send(f'{message.author.mention}：{outputmsg}')
+                    elif typeout=='QUESTIONGAME':
+                        self.gamequestion=True
+                        self.normalquestion=False
+                        outputmsg=random.choice(jdata[f'{typeout}'])
+                        await message.channel.send(f'{message.author.mention}：{outputmsg}')
+                    elif typeout=='RANDOMMESSAGE':
+                        outputmsg=random.choice(jdata[f'{typeout}'])
+                        await message.channel.send(f'{message.author.mention}：{outputmsg}')
+                elif self.gamequestion==True and self.normalquestion==False:
+                    self.gamequestion=False
+                    outputmsg=random.choice(jdata['ANSWERGAME'])
+                    await message.channel.send(f'{message.author.mention}：{outputmsg}')
+                elif self.gamequestion==False and self.normalquestion==True:
+                    self.normalquestion==False
+                    outputmsg=random.choice(jdata['ANSWERNORMAL'])
+                    await message.channel.send(f'{message.author.mention}：{outputmsg}')
+                    
 def setup(bot):
     bot.add_cog(FunReply(bot))
