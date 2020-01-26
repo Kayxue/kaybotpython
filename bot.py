@@ -4,7 +4,7 @@ import random
 import json
 import os
 
-bot=commands.Bot(command_prefix='s!',help_command=None,description="由芝麻湯圓所製作的機器人")
+bot=commands.Bot(command_prefix=['s!','sesame '],help_command=None,description="由芝麻湯圓所製作的機器人")
 client=discord.Client()
 
 with open('setting.json','r',encoding='utf8') as jfile:
@@ -89,7 +89,9 @@ async def help(ctx):
     embed1.add_field(name='botinfo',value='查看關於此機器人之資訊',inline=False)
     embed1.add_field(name='clear',value='清除指定數量之訊息',inline=False)
     embed1.add_field(name='kick',value='將指定使用者踢出伺服器',inline=False)
-    embed1.add_field(name='ban（請先不要用）',value='將指定使用者封鎖')
+    embed1.add_field(name='ban（請先不要用）',value='將指定使用者封鎖',inline=False)
+    embed1.add_field(name='say',value='讓bot說出指定訊息',inline=False)
+    embed1.add_field(name='saydel',value='讓bot說出指定訊息（輸入之指令會被刪除）',inline=False)
     await ctx.channel.send(embed=embed1)
 
 for filename in os.listdir('./cmds'):
