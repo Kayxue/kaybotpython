@@ -15,6 +15,7 @@ class Bot(commands.Bot):
         self.add_cog(maintask(self))
     
     async def on_ready(self):
+        await self.change_presence(status=discord.Status.online, activity=discord.Game(name='s!help / sesame help'))
         print('Bot is online')
 
 class maintask(Cog_Extension):
@@ -96,6 +97,8 @@ class maintask(Cog_Extension):
         embed1.add_field(name='ban（請先不要用）',value='將指定使用者封鎖',inline=False)
         embed1.add_field(name='say',value='讓bot說出指定訊息',inline=False)
         embed1.add_field(name='saydel',value='讓bot說出指定訊息（輸入之指令會被刪除）',inline=False)
+        embed1.add_field(name='userinfo',value='顯示出你的使用者資訊',inline=False)
+        embed1.add_field(name='loly',value='隨機顯示一張蘿莉圖')
         await ctx.channel.send(embed=embed1)
 
 bot=Bot()
