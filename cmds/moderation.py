@@ -74,7 +74,7 @@ class Moderation(Cog_Extension):
         embed1.add_field(name='原因：',value=reason,inline=False)
         embed1.set_thumbnail(url=user.avatar_url)
         embed1.set_footer(text=ctx.message.author,icon_url=ctx.message.author.avatar_url)
-        await user.ban(reason=reason,delete_message_date=1)
+        await user.ban(reason=reason,delete_message_date=30)
         embed2=discord.Embed(title='成功封鎖成員！',description=f'已成功封鎖成員：{user.mention}！',color=0xb6b8ba)
         await channel.send(embed=embed1)
         await ctx.channel.send(embed=embed2)

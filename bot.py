@@ -20,8 +20,12 @@ class Bot(commands.Bot):
         print('Bot is online')
 
 class maintask(Cog_Extension):
+    
+    def is_it_me(ctx):
+        return ctx.author.id == 470516498050580480
+    
     @commands.command(pass_context = True)
-    @commands.has_permissions(administrator=True)
+    @commands.check(is_it_me)
     async def load(self,ctx,extension):
         bot.load_extension(f'cmds.{extension}')
         embed1=discord.Embed(title='指定類別指令載入成功！',description=f'成功載入{extension}類別指令！',color=0xb6b8ba)
@@ -30,8 +34,7 @@ class maintask(Cog_Extension):
     @load.error
     async def load_error(self,ctx,error):
         if isinstance(error,discord.ext.commands.CheckFailure):
-            embed1=discord.Embed(title='權限不足！',description='您沒有權限執行此指令！',color=0xb6b8ba)
-            embed1.add_field(name='請確認您是否有以下權限：',value='管理員')
+            embed1=discord.Embed(title='權限不足！',description='只有湯圓本人能執行此指令喔！',color=0xb6b8ba)
             await ctx.channel.send(embed=embed1)
         elif isinstance(error, discord.ext.commands.MissingRequiredArgument):
             embed1=discord.Embed(title='請輸入要載入之類別！',description='不會用嗎？沒關係，我幫你',color=0xb6b8ba)
@@ -44,7 +47,7 @@ class maintask(Cog_Extension):
             await ctx.channel.send(embed=embed1)
 
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @commands.check(is_it_me)
     async def unload(self,ctx,extension):
         bot.unload_extension(f'cmds.{extension}')
         embed1=discord.Embed(title='指定類別指令解除載入成功！',description=f'成功解除載入{extension}類別指令！',color=0xb6b8ba)
@@ -53,8 +56,7 @@ class maintask(Cog_Extension):
     @unload.error
     async def unload_error(self,ctx,error):
         if isinstance(error,discord.ext.commands.CheckFailure):
-            embed1=discord.Embed(title='權限不足！',description='您沒有權限執行此指令！',color=0xb6b8ba)
-            embed1.add_field(name='請確認您是否有以下權限：',value='管理員')
+            embed1=discord.Embed(title='權限不足！',description='只有湯圓本人能執行此指令喔！',color=0xb6b8ba)
             await ctx.channel.send(embed=embed1)
         elif isinstance(error, discord.ext.commands.MissingRequiredArgument):
             embed1=discord.Embed(title='請輸入要解除載入之類別！',description='不會用嗎？沒關係，我幫你',color=0xb6b8ba)
@@ -67,17 +69,16 @@ class maintask(Cog_Extension):
             await ctx.channel.send(embed=embed1)
         
     @commands.command()
-    @commands.has_permissions(administrator=True)
+    @commands.check(is_it_me)
     async def reload(self,ctx,extension):
         bot.reload_extension(f'cmds.{extension}')
         embed1=discord.Embed(title='已重新載入指定類別指令！',description=f'成功重新載入{extension}類別指令！',color=0xb6b8ba)
         await ctx.send(embed=embed1)
-        
+    
     @reload.error
     async def reload_error(self,ctx,error):
         if isinstance(error,discord.ext.commands.CheckFailure):
-            embed1=discord.Embed(title='權限不足！',description='您沒有權限執行此指令！',color=0xb6b8ba)
-            embed1.add_field(name='請確認您是否有以下權限：',value='管理員')
+            embed1=discord.Embed(title='權限不足！',description='只有湯圓本人能執行此指令喔！',color=0xb6b8ba)
             await ctx.channel.send(embed=embed1)
         elif isinstance(error, discord.ext.commands.MissingRequiredArgument):
             embed1=discord.Embed(title='請輸入要重新載入之類別！',description='不會用嗎？沒關係，我幫你',color=0xb6b8ba)
@@ -99,10 +100,14 @@ class maintask(Cog_Extension):
                       .add_field(name='say',value='讓bot說出指定訊息',inline=False)
                       .add_field(name='saydel',value='讓bot說出指定訊息（輸入之指令會被刪除）',inline=False)
                       .add_field(name='loly',value='隨機顯示一張蘿莉圖'),
-               discord.Embed(title='幫助－管理類',description='管理類指令表',color=0xb6b8ba)
-                      .add_field(name='clear',value='清除指定數量之訊息',inline=False)
-                      .add_field(name='kick',value='將指定使用者踢出伺服器',inline=False)
-                      .add_field(name='ban（請先不要用）',value='將指定使用者封鎖',inline=False)
+               discord.Embed(title='幫助－伺服器管理類',description='伺服器管理類指令表，\n要執行此類指令必須要有該指令相對應之權限',color=0xb6b8ba)
+                      .add_field(name='clear',value='清除指定數量之訊息\n（必須權限：管理訊息）',inline=False)
+                      .add_field(name='kick',value='將指定使用者踢出伺服器\n（必須權限：踢出成員）',inline=False)
+                      .add_field(name='ban（請先不要用）',value='將指定使用者封鎖\n（必須權限：封鎖成員）',inline=False),
+               discord.Embed(title='幫助－機器人管理類',description='機器人管理類指令表，\n僅湯圓本人能執行這些指令喔！\n這些為管理機器人載入之功能與指令的指令',color=0xb6b8ba)
+                      .add_field(name='load',value='啟用指定類別之功能或指令',inline=False)
+                      .add_field(name='reload',value='重新載入指定類別之功能或指令',inline=False)
+                      .add_field(name='unload',value='關閉指定類別之功能或指令',inline=False)
                ]
         paginator = BotEmbedPaginator(ctx, embed)
         await paginator.run()

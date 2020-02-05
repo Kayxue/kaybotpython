@@ -5,6 +5,7 @@ import datetime
 from datetime import *
 
 class Info(Cog_Extension):
+    '''Bot資訊'''
     @commands.command()
     async def botinfo(self,ctx):
         embed1=discord.Embed(title="關於此機器人",description="關於此機器人的資訊",color=0xb6b8ba)
@@ -12,7 +13,7 @@ class Info(Cog_Extension):
         embed1.add_field(name='主要協助：',value='Harry the Gamer - AzureX1212')
         embed1.add_field(name='使用discord.py版本：',value=f"{discord.__version__}({discord.version_info[3]})")
         await ctx.channel.send(embed=embed1)
-
+    '''時間資訊'''
     @commands.command()
     async def showtime(self,ctx):
         outtime=time.strftime("%Y/%m/%d %p %l:%M:%S %Z")
@@ -38,5 +39,6 @@ class Info(Cog_Extension):
         embed1.set_thumbnail(url=ctx.author.avatar_url)
         embed1.set_footer(text=ctx.author,icon_url=ctx.author.avatar_url)
         await ctx.channel.send(embed=embed1)
+
 def setup(bot):
     bot.add_cog(Info(bot))
