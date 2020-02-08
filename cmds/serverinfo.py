@@ -104,7 +104,6 @@ class ServerInfo(Cog_Extension):
         embed1.set_thumbnail(url=ctx.guild.icon_url)
         embed1.set_footer(text=ctx.author,icon_url=ctx.author.avatar_url)
         await ctx.channel.send(embed=embed1)
-        
 
 def setup(bot):
     bot.add_cog(ServerInfo(bot))

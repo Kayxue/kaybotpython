@@ -8,7 +8,6 @@ from disputils import *
 
 with open('setting.json','r',encoding='utf8') as jfile:
     jdata=json.load(jfile)
-    
 
 class Bot(commands.Bot):
     def __init__(self):
