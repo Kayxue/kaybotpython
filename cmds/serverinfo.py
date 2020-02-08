@@ -104,6 +104,16 @@ class ServerInfo(Cog_Extension):
         embed1.set_thumbnail(url=ctx.guild.icon_url)
         embed1.set_footer(text=ctx.author,icon_url=ctx.author.avatar_url)
         await ctx.channel.send(embed=embed1)
+        
+    @commands.command()
+    async def serverboost(self,ctx):
+        embed1=discord.Embed(title=f"關於伺服器{ctx.guild.name}之加成資料",description="關於此伺服器現在之加成資料",color=0xb6b8ba)
+        premiums={"level":ctx.guild.premium_tier,"boost user count":ctx.guild.premium_subscription_count}
+        if premiums['boost user count'] == 0:
+            premiums['boost user count'] = "無人加成" 
+        embed1.add_field(name="此伺服器加成等級：",value=premiums['level'])
+        embed1.add_field(name="此伺服器加成人數",value=premiums['boost user count'])
+        await ctx.channel.send(embed=embed1)
 
 def setup(bot):
     bot.add_cog(ServerInfo(bot))
