@@ -100,6 +100,7 @@ class ServerInfo(Cog_Extension):
         embed1.add_field(name=f"頻道［{len(ctx.guild.channels)}］：",value=f"頻道類別數量：{channel['category']}\n文字頻道數量：{channel['textchannel']}\n語音頻道數量：{channel['voicechannel']}",inline=True)
         embed1.add_field(name="安全層級",value=f"驗證等級：{safety['verification level']}\n兩步驟驗證是否啟用：{safety['2fa level']}",inline=True)
         embed1.add_field(name="伺服器地區",value=f"{region}",inline=True)
+        embed1.add_field(name="伺服器創建時間",value=f"{ctx.guild.created_at.strftime('%Y/%m/%d %p %l:%M:%S %Z')}")
         embed1.add_field(name="服主",value=f"{ctx.guild.owner.mention}")
         embed1.set_thumbnail(url=ctx.guild.icon_url)
         embed1.set_footer(text=ctx.author,icon_url=ctx.author.avatar_url)

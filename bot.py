@@ -94,11 +94,15 @@ class maintask(Cog_Extension):
         embed=[discord.Embed(title='幫助－資訊類',description='資訊類指令表',color=0xb6b8ba)
                       .add_field(name='help',value='顯示此列表',inline=False)
                       .add_field(name='botinfo',value='查看關於此機器人之資訊',inline=False)
-                      .add_field(name='userinfo',value='顯示出你的使用者資訊',inline=False),
+                      .add_field(name='userinfo',value='顯示出你的使用者資訊',inline=False)
+                      .add_field(name='showtime',value='顯示當前所在時區之時間',inline=False),
                discord.Embed(title='幫助－休閒娛樂類',description='休閒娛樂類指令表',color=0xb6b8ba)
                       .add_field(name='say',value='讓bot說出指定訊息',inline=False)
                       .add_field(name='saydel',value='讓bot說出指定訊息（輸入之指令會被刪除）',inline=False)
                       .add_field(name='loly',value='隨機顯示一張蘿莉圖'),
+               discord.Embed(title='幫助－伺服器資訊類',description='伺服器資訊類指令表，\n所有人能執行這些指令喔！',color=0xb6b8ba)
+                      .add_field(name='serverinfo',value='查看此伺服器的資訊',inline=False)
+                      .add_field(name='serverboost',value='查看此伺服器之加速狀態',inline=False),        
                discord.Embed(title='幫助－伺服器管理類',description='伺服器管理類指令表，\n要執行此類指令必須要有該指令相對應之權限',color=0xb6b8ba)
                       .add_field(name='clear',value='清除指定數量之訊息\n（必須權限：管理訊息）',inline=False)
                       .add_field(name='kick',value='將指定使用者踢出伺服器\n（必須權限：踢出成員）',inline=False)

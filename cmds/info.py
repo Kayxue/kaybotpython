@@ -16,7 +16,7 @@ class Info(Cog_Extension):
     '''時間資訊'''
     @commands.command()
     async def showtime(self,ctx):
-        outtime=time.strftime("%Y/%m/%d %p %l:%M:%S %Z")
+        outtime=datetime.now().strftime("%Y/%m/%d %p %l:%M:%S %Z")
         await ctx.channel.send(outtime)
         
     @commands.command()
@@ -34,8 +34,8 @@ class Info(Cog_Extension):
         elif str(ctx.author.status) == 'offline':
             embed1.add_field(name='狀態：',value='Sorry，我不在線，晚點喔！',inline=False)
         embed1.add_field(name='此伺服器之最高身份組：',value=ctx.author.top_role.mention,inline=False)
-        embed1.add_field(name='加入此伺服器日期：',value=ctx.author.joined_at,inline=False)
-        embed1.add_field(name='帳戶創建日期：',value=ctx.author.created_at,inline=False)
+        embed1.add_field(name='加入此伺服器日期：',value=ctx.author.joined_at.strftime("%Y/%m/%d %p %l:%M:%S %Z"),inline=False)
+        embed1.add_field(name='帳戶創建日期：',value=ctx.author.created_at.strftime("%Y/%m/%d %p %l:%M:%S %Z"),inline=False)
         embed1.set_thumbnail(url=ctx.author.avatar_url)
         embed1.set_footer(text=ctx.author,icon_url=ctx.author.avatar_url)
         await ctx.channel.send(embed=embed1)

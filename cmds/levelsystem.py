@@ -16,6 +16,7 @@ class Level(Cog_Extension):
                 jdata[userid]['level'] = 1
                 jdata[userid]['xp'] = 1
                 jdata[userid]['coin']=1
+                jdata[userid]['challengepass']=0
                 with open("level.json",mode="w",encoding='utf8')as finish:
                     json.dump(jdata,finish,sort_keys=True,indent=4)
             else:
