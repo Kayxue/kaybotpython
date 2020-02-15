@@ -3,6 +3,9 @@ from discord.ext import commands
 from core.classes import *
 import datetime
 from datetime import *
+import pyowm
+
+owm=pyowm.OWM("512f3f992f903e7611a229fcc2c06f53")
 
 class Info(Cog_Extension):
     '''Bot資訊'''
@@ -39,6 +42,21 @@ class Info(Cog_Extension):
         embed1.set_thumbnail(url=ctx.author.avatar_url)
         embed1.set_footer(text=ctx.author,icon_url=ctx.author.avatar_url)
         await ctx.channel.send(embed=embed1)
+        
+    @commands.command()
+    async def weather(self,ctx,location:str):
+        observation=owm.weather_at_place(location)
+        w=observation.get_weather()
+        weather=w.get_detailed_status()
+        temps=w.get_temperature(unit='celsius')
+        embed1=discord.Embed(title="天氣資訊",description="該地天氣資訊如下：",color=0xb6b8ba)
+        embed1.add_field(name="天氣",value=weather)
+        embed1.add_field(name="目前溫度",value=f"{temps['temp']}\u2103")
+        embed1.add_field(name="最高溫度",value=f"{temps['temp_max']}\u2103")
+        embed1.add_field(name="最低溫度：",value=f"{temps['temp_min']}\u2103")
+        embed1.set_footer(icon_url="https://pbs.twimg.com/profile_images/1173919481082580992/f95OeyEW_400x400.jpg",text="資料提供：openweathermap.org")
+        await ctx.channel.send(embed=embed1)
+        
 
 def setup(bot):
     bot.add_cog(Info(bot))

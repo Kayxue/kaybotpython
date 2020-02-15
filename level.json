@@ -1,69 +1,99 @@
 {
     "408576714243833867": {
         "challengepass": 0,
-        "coin": 276,
-        "level": 23,
-        "xp": 48
+        "coin": 351,
+        "level": 26,
+        "xp": 35
     },
     "408647037815357452": {
         "challengepass": 0,
-        "coin": 3,
-        "level": 2,
+        "coin": 6,
+        "level": 3,
         "xp": 4
     },
-    "412951165324754974": {
-        "challengepass": 0,
-        "coin": 3,
-        "level": 2,
-        "xp": 1
-    },
-    "460079356799352842": {
+    "409201048524161024": {
         "challengepass": 0,
         "coin": 1,
         "level": 1,
         "xp": 1
     },
-    "470516498050580480": {
-        "challengepass": 0,
-        "coin": 1953,
-        "level": 62,
-        "xp": 47
-    },
-    "472436478245339137": {
+    "412951165324754974": {
         "challengepass": 0,
         "coin": 10,
         "level": 4,
-        "xp": 2
-    },
-    "482175956572831745": {
-        "challengepass": 0,
-        "coin": 1770,
-        "level": 59,
-        "xp": 171
-    },
-    "483486924909314059": {
-        "challengepass": 0,
-        "coin": 6,
-        "level": 3,
         "xp": 3
     },
-    "489385644519456770": {
+    "432202169836371969": {
+        "challengepass": 0,
+        "coin": 1,
+        "level": 1,
+        "xp": 1
+    },
+    "460079356799352842": {
         "challengepass": 0,
         "coin": 3,
         "level": 2,
         "xp": 4
     },
+    "470516498050580480": {
+        "challengepass": 0,
+        "coin": 2278,
+        "level": 67,
+        "xp": 76
+    },
+    "472436478245339137": {
+        "challengepass": 0,
+        "coin": 21,
+        "level": 6,
+        "xp": 10
+    },
+    "482175956572831745": {
+        "challengepass": 0,
+        "coin": 1953,
+        "level": 62,
+        "xp": 119
+    },
+    "483463834066092053": {
+        "challengepass": 0,
+        "coin": 1,
+        "level": 1,
+        "xp": 1
+    },
+    "483486924909314059": {
+        "challengepass": 0,
+        "coin": 10,
+        "level": 4,
+        "xp": 9
+    },
+    "489385644519456770": {
+        "challengepass": 0,
+        "coin": 6,
+        "level": 3,
+        "xp": 5
+    },
     "499407684878073857": {
         "challengepass": 0,
         "coin": 6,
         "level": 3,
+        "xp": 7
+    },
+    "505701521917214720": {
+        "challengepass": 0,
+        "coin": 1,
+        "level": 1,
+        "xp": 1
+    },
+    "505907361785970703": {
+        "challengepass": 0,
+        "coin": 3,
+        "level": 2,
         "xp": 3
     },
     "511874867096977431": {
         "challengepass": 0,
         "coin": 3,
         "level": 2,
-        "xp": 0
+        "xp": 2
     },
     "519131849491087380": {
         "challengepass": 0,
@@ -75,7 +105,13 @@
         "challengepass": 0,
         "coin": 6,
         "level": 3,
-        "xp": 0
+        "xp": 1
+    },
+    "529712285187309568": {
+        "challengepass": 0,
+        "coin": 1,
+        "level": 1,
+        "xp": 1
     },
     "536173588508835840": {
         "challengepass": 0,
@@ -83,35 +119,65 @@
         "level": 2,
         "xp": 1
     },
+    "538692752238575619": {
+        "challengepass": 0,
+        "coin": 1,
+        "level": 1,
+        "xp": 1
+    },
+    "543301682755272710": {
+        "challengepass": 0,
+        "coin": 3,
+        "level": 2,
+        "xp": 4
+    },
     "550343392740114509": {
         "challengepass": 0,
-        "coin": 136,
-        "level": 16,
-        "xp": 20
+        "coin": 276,
+        "level": 23,
+        "xp": 57
+    },
+    "558902487105536002": {
+        "challengepass": 0,
+        "coin": 1,
+        "level": 1,
+        "xp": 2
+    },
+    "566376852625555459": {
+        "challengepass": 0,
+        "coin": 15,
+        "level": 5,
+        "xp": 10
     },
     "594159722303586344": {
         "challengepass": 0,
-        "coin": 6,
-        "level": 3,
-        "xp": 4
+        "coin": 136,
+        "level": 16,
+        "xp": 16
     },
     "600875805995696144": {
         "challengepass": 0,
         "coin": 6,
         "level": 3,
-        "xp": 0
+        "xp": 2
     },
     "606280263785250819": {
         "challengepass": 0,
-        "coin": 21,
-        "level": 6,
-        "xp": 13
+        "coin": 45,
+        "level": 9,
+        "xp": 1
     },
     "616479396769038366": {
         "challengepass": 0,
-        "coin": 91,
-        "level": 13,
-        "xp": 17
+        "coin": 171,
+        "level": 18,
+        "xp": 3
+    },
+    "624958596060282896": {
+        "challengepass": 0,
+        "coin": 3,
+        "level": 2,
+        "xp": 1
     },
     "625637450236035072": {
         "challengepass": 0,
@@ -119,16 +185,22 @@
         "level": 5,
         "xp": 6
     },
-    "664834181527765002": {
-        "challengepass": 0,
-        "coin": 3,
-        "level": 2,
-        "xp": 4
-    },
-    "672157931990548490": {
+    "661739724670500866": {
         "challengepass": 0,
         "coin": 10,
         "level": 4,
         "xp": 8
+    },
+    "664834181527765002": {
+        "challengepass": 0,
+        "coin": 45,
+        "level": 9,
+        "xp": 23
+    },
+    "672157931990548490": {
+        "challengepass": 0,
+        "coin": 21,
+        "level": 6,
+        "xp": 2
     }
 }
