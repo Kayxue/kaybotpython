@@ -5,7 +5,10 @@ import datetime
 from datetime import *
 import pyowm
 
-owm = pyowm.OWM("512f3f992f903e7611a229fcc2c06f53")
+with open("setting.json", "r", encoding="utf8") as jfile:
+    jdata = json.load(jfile)
+
+owm = pyowm.OWM(jdata["OPENWEATHERMAPTOKEN"])
 
 
 class Info(Cog_Extension):
